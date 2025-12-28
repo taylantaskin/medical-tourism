@@ -1,0 +1,175 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ============================================
+// CLINICS MODEL
+// ============================================
+model Clinic {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  city        String
+  country     String   @default("Turkey")
+  address     String?
+
+  // Specialties
+  specialties String[] // ["dental", "hair", "cosmetic", "eye"]
+
+  // Contact
+  phone       String
+  email       String
+  website     String?
+
+  // Business
+  rating      Float    @default(0)
+  commission  Float    @default(10) // Commission percentage
+
+  // Content
+  description String   @db.Text
+  imageUrl    String?
+  logoUrl     String?
+
+  // Meta
+  featured    Boolean  @default(false)
+  active      Boolean  @default(true)
+  verified    Boolean  @default(false)
+
+  // Stats
+  totalPatients Int    @default(0)
+
+  // Timestamps
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  applications Application[]
+
+  @@index([active, featured])
+  @@index([city])
+  @@index([specialties])
+  @@index([slug])
+  @@map("clinics")
+}
+
+// ============================================
+// APPLICATIONS MODEL (Contact Form)
+// ============================================
+model Application {
+  id          String   @id @default(cuid())
+
+  // Personal Info
+  name        String
+  email       String
+  phone       String
+  country     String   @default("Spain")
+  age         Int?
+
+  // Treatment Info
+  treatment   String   // "dental", "hair", "cosmetic", "eye"
+  message     String   @db.Text
+  budget      String?  // "low", "medium", "high"
+  urgency     String   @default("normal") // "urgent", "normal", "flexible"
+
+  // Status
+  status      String   @default("pending") // pending, contacted, in_progress, completed, cancelled
+  priority    String   @default("normal") // low, normal, high
+
+  // Assignment
+  clinicId    String?
+  clinic      Clinic?  @relation(fields: [clinicId], references: [id])
+  assignedTo  String?  // Admin user ID
+
+  // Notes (admin internal)
+  adminNotes  String?  @db.Text
+
+  // Timestamps
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  contactedAt DateTime?
+
+  @@index([status, createdAt])
+  @@index([treatment])
+  @@index([email])
+  @@index([clinicId])
+  @@map("applications")
+}
+
+// ============================================
+// USERS MODEL (Admin)
+// ============================================
+model User {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  name         String?
+  passwordHash String
+
+  // Role
+  role         String    @default("admin") // admin, super_admin, editor
+
+  // Status
+  active       Boolean   @default(true)
+
+  // Timestamps
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  lastLogin    DateTime?
+
+  @@index([email])
+  @@index([role])
+  @@map("users")
+}
+
+// ============================================
+// BLOG POSTS MODEL
+// ============================================
+model Post {
+  id          String   @id @default(cuid())
+
+  // Content
+  title       String
+  slug        String   @unique
+  excerpt     String   @db.Text
+  content     String   @db.Text
+
+  // Media
+  imageUrl    String?
+
+  // Categories
+  category    String   // "dental", "hair", "cosmetic", "eye", "travel", "general"
+  tags        String[] // ["turkey", "hair-transplant", "guide"]
+
+  // SEO
+  metaTitle       String?
+  metaDescription String?
+
+  // Publishing
+  published   Boolean  @default(false)
+  featured    Boolean  @default(false)
+
+  // Stats
+  views       Int      @default(0)
+
+  // Author
+  author      String   @default("TurkHealth Team")
+  authorId    String?
+
+  // Timestamps
+  publishedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([published, createdAt])
+  @@index([slug])
+  @@index([category])
+  @@index([featured])
+  @@map("posts")
+}
