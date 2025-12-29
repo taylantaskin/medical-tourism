@@ -35,74 +35,61 @@ app.get('/health', (req, res) => {
 // ============================================
 
 // POST /api/auth/login - Admin login
+// POST /api/auth/login - Admin login
 app.post('/api/auth/login', async (req, res) => {
     try {
         const { email, password } = req.body;
 
+        console.log('🔍 LOGIN DENEMESİ BAŞLADI:', email); // 1. Log
+
         if (!email || !password) {
-            return res.status(400).json({
-                success: false,
-                error: 'Email and password are required'
-            });
+            console.log('❌ HATA: Email veya şifre boş gönderildi.');
+            return res.status(400).json({ success: false, error: 'Email and password required' });
         }
 
         // Find user
-        const user = await prisma.user.findUnique({
-            where: { email }
-        });
+        const user = await prisma.user.findUnique({ where: { email } });
 
-        if (!user || !user.active) {
-            return res.status(401).json({
-                success: false,
-                error: 'Invalid credentials'
-            });
+        // 2. Log: Kullanıcı veritabanında var mı?
+        if (!user) {
+            console.log('❌ HATA: Kullanıcı veritabanında BULUNAMADI.');
+            return res.status(401).json({ success: false, error: 'User not found' });
         }
+
+        console.log('✅ KULLANICI BULUNDU:', user.email);
+        console.log('🔑 DB Hash:', user.passwordHash.substring(0, 10) + '...'); // Hash'in başını görelim
+        console.log('🔑 Gönderilen Şifre:', password);
 
         // Verify password
         const isValidPassword = await bcrypt.compare(password, user.passwordHash);
 
+        console.log('🔍 ŞİFRE KONTROL SONUCU:', isValidPassword); // 3. Log: Şifre tutuyor mu?
+
         if (!isValidPassword) {
-            return res.status(401).json({
-                success: false,
-                error: 'Invalid credentials'
-            });
+            console.log('❌ HATA: Şifreler EŞLEŞMEDİ.');
+            return res.status(401).json({ success: false, error: 'Invalid password' });
         }
 
-        // Generate JWT token
+        // Generate Token
         const token = jwt.sign(
-            {
-                id: user.id,
-                email: user.email,
-                role: user.role
-            },
+            { id: user.id, email: user.email, role: user.role },
             JWT_SECRET,
             { expiresIn: JWT_EXPIRES_IN } as jwt.SignOptions
         );
 
-        // Update last login
-        await prisma.user.update({
-            where: { id: user.id },
-            data: { lastLogin: new Date() }
-        });
+        console.log('🎉 BAŞARILI: Token oluşturuldu, giriş yapılıyor.');
 
         res.json({
             success: true,
             data: {
                 token,
-                user: {
-                    id: user.id,
-                    email: user.email,
-                    name: user.name,
-                    role: user.role
-                }
+                user: { id: user.id, email: user.email, name: user.name, role: user.role }
             }
         });
+
     } catch (error) {
-        console.error('Login error:', error);
-        res.status(500).json({
-            success: false,
-            error: 'Login failed'
-        });
+        console.error('💥 KRİTİK HATA (Login Error):', error);
+        res.status(500).json({ success: false, error: 'Login failed' });
     }
 });
 
