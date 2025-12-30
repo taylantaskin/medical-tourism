@@ -53,7 +53,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                     <div className="flex items-center justify-between h-16 px-6 border-b">
                         <Link to="/" className="flex items-center gap-2">
                             <span className="text-2xl">🏥</span>
-                            <span className="text-xl font-bold text-gray-900">TurkHealth</span>
+                            <span className="text-xl font-bold text-gray-900">Clinikverde</span>
                         </Link>
                         <button
                             onClick={() => setSidebarOpen(false)}
@@ -122,7 +122,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
 
                     <div className="flex-1 lg:flex-none">
                         <h1 className="text-xl font-bold text-gray-900 lg:hidden">
-                            TurkHealth Admin
+                            Clinikverde Admin
                         </h1>
                     </div>
 

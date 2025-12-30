@@ -27,7 +27,7 @@ app.use(express.json());
 
 // Health check
 app.get('/health', (req, res) => {
-    res.json({ status: 'ok', message: 'TurkHealth API is running' });
+    res.json({ status: 'ok', message: 'Clinikverde API is running' });
 });
 
 // ============================================
@@ -524,7 +524,7 @@ app.use((req, res) => {
 // Start server
 app.listen(PORT, () => {
     console.log('\n╔════════════════════════════════════════╗');
-    console.log('║   🏥 TURKHEALTH BACKEND SERVER 🏥     ║');
+    console.log('║   🏥 Clinikverde BACKEND SERVER 🏥     ║');
     console.log('╚════════════════════════════════════════╝\n');
     console.log('✅ Server Status: RUNNING');
     console.log(`🌐 Server URL: http://localhost:${PORT}`);

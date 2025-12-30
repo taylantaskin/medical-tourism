@@ -209,11 +209,11 @@ export default function ServiceDetail() {
                                     <span>+90 555 123 4567</span>
                                 </a>
                                 <a
-                                    href="mailto:info@turkhealth.com"
+                                    href="mailto:info@Clinikverde.com"
                                     className="flex items-center gap-3 text-blue-100 hover:text-white transition-colors"
                                 >
                                     <Mail className="w-5 h-5" />
-                                    <span>info@turkhealth.com</span>
+                                    <span>info@Clinikverde.com</span>
                                 </a>
                             </div>
                         </div>
@@ -221,7 +221,7 @@ export default function ServiceDetail() {
                         {/* Why Choose Us */}
                         <div className="bg-gray-50 rounded-xl p-6">
                             <h3 className="text-xl font-bold text-gray-900 mb-4">
-                                Why Choose TurkHealth?
+                                Why Choose Clinikverde?
                             </h3>
                             <div className="space-y-4">
                                 {[

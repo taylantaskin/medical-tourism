@@ -43,7 +43,7 @@ export default function Login() {
                 <div className="text-center mb-8">
                     <div className="inline-flex items-center gap-2 text-white mb-4">
                         <span className="text-4xl">🏥</span>
-                        <h1 className="text-3xl font-bold">TurkHealth</h1>
+                        <h1 className="text-3xl font-bold">Clinikverde</h1>
                     </div>
                     <p className="text-blue-100">Admin Panel</p>
                 </div>
@@ -74,7 +74,7 @@ export default function Login() {
                                 onChange={handleChange}
                                 required
                                 className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                                placeholder="admin@turkhealth.com"
+                                placeholder="admin@Clinikverde.com"
                             />
                         </div>
 
@@ -118,7 +118,7 @@ export default function Login() {
 
                     <div className="mt-6 pt-6 border-t border-gray-200">
                         <p className="text-center text-sm text-gray-500">
-                            Demo: admin@turkhealth.com / admin123
+                            Demo: admin@Clinikverde.com / admin123
                         </p>
                     </div>
                 </div>

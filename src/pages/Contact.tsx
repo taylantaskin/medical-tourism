@@ -143,8 +143,8 @@ export default function Contact() {
                                     {
                                         icon: <Mail className="w-5 h-5" />,
                                         title: 'Email',
-                                        value: 'info@turkhealth.com',
-                                        href: 'mailto:info@turkhealth.com',
+                                        value: 'info@Clinikverde.com',
+                                        href: 'mailto:info@Clinikverde.com',
                                         color: 'bg-blue-500'
                                     },
                                     {

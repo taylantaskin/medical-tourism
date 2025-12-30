@@ -1,8 +1,8 @@
-# 🏥 TurkHealth - Medical Tourism Platform
+# 🏥 Clinikverde - Medical Tourism Platform
 
 <div align="center">
 
-![TurkHealth Banner](https://img.shields.io/badge/TurkHealth-Medical_Tourism-blue?style=for-the-badge)
+![Clinikverde Banner](https://img.shields.io/badge/Clinikverde-Medical_Tourism-blue?style=for-the-badge)
 [![Live Demo](https://img.shields.io/badge/Live-Demo-success?style=for-the-badge)](https://medical-tourism-kohl.vercel.app)
 [![API Status](https://img.shields.io/badge/API-Online-success?style=for-the-badge)](https://medical-tourism-production.up.railway.app/health)
 
@@ -34,9 +34,9 @@
 
 ## 🎯 About The Project
 
-TurkHealth is a comprehensive medical tourism platform designed to bridge the gap between international patients seeking high-quality, affordable healthcare and Turkey's world-class medical facilities. The platform offers a seamless experience for discovering treatments, connecting with clinics, and managing patient applications.
+Clinikverde is a comprehensive medical tourism platform designed to bridge the gap between international patients seeking high-quality, affordable healthcare and Turkey's world-class medical facilities. The platform offers a seamless experience for discovering treatments, connecting with clinics, and managing patient applications.
 
-### Why TurkHealth?
+### Why Clinikverde?
 
 - 🌍 **Global Reach**: Connecting patients from 100+ countries with Turkish medical expertise
 - 💰 **Cost Savings**: Up to 70% savings compared to US/EU prices
@@ -217,8 +217,8 @@ VITE_API_URL=http://localhost:5001
 
 Backend `server/.env`:
 ```env
-DATABASE_URL="postgresql://user:password@localhost:5432/turkhealth"
-DIRECT_URL="postgresql://user:password@localhost:5432/turkhealth"
+DATABASE_URL="postgresql://user:password@localhost:5432/Clinikverde"
+DIRECT_URL="postgresql://user:password@localhost:5432/Clinikverde"
 JWT_SECRET="your-super-secret-key"
 JWT_EXPIRES_IN="7d"
 PORT=5001
@@ -371,7 +371,7 @@ curl -X POST https://medical-tourism-production.up.railway.app/api/applications 
 curl -X POST https://medical-tourism-production.up.railway.app/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{
-    "email": "admin@turkhealth.com",
+    "email": "admin@Clinikverde.com",
     "password": "admin123"
   }'
 ```

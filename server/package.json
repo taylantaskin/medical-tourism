@@ -1,7 +1,7 @@
 {
-  "name": "turkhealth-server",
+  "name": "Clinikverde-server",
   "version": "1.0.0",
-  "description": "TurkHealth Medical Tourism API",
+  "description": "Clinikverde Medical Tourism API",
   "main": "dist/index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
@@ -17,7 +17,7 @@
     "api",
     "express"
   ],
-  "author": "TurkHealth",
+  "author": "Clinikverde",
   "license": "MIT",
   "dependencies": {
     "@prisma/client": "^5.22.0",

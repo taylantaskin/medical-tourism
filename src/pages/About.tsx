@@ -81,7 +81,7 @@ export default function About() {
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                         About{' '}
                         <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                            TurkHealth
+                            Clinikverde
                         </span>
                     </h1>
                     <p className="text-xl text-blue-100/80 max-w-3xl mx-auto">
@@ -125,7 +125,7 @@ export default function About() {
                             </h2>
                             <div className="space-y-4 text-gray-600 leading-relaxed">
                                 <p>
-                                    Founded in Istanbul, TurkHealth was born from a simple observation:
+                                    Founded in Istanbul, Clinikverde was born from a simple observation:
                                     world-class medical care shouldn't be limited by geography or cost.
                                     We saw patients struggling with long waiting lists and prohibitive
                                     prices in their home countries, while Turkey offered the same quality

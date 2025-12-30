@@ -12,7 +12,7 @@ export default function Footer() {
                     <div>
                         <div className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
                             <span className="text-3xl">🏥</span>
-                            TurkHealth
+                            Clinikverde
                         </div>
                         <p className="text-sm mb-4">
                             Your trusted partner for medical tourism in Turkey. Quality healthcare at affordable prices.
@@ -72,8 +72,8 @@ export default function Footer() {
                             </li>
                             <li className="flex items-center gap-2">
                                 <Mail size={18} />
-                                <a href="mailto:info@turkhealth.com" className="hover:text-white transition">
-                                    info@turkhealth.com
+                                <a href="mailto:info@Clinikverde.com" className="hover:text-white transition">
+                                    info@Clinikverde.com
                                 </a>
                             </li>
                         </ul>
@@ -83,7 +83,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="border-t border-gray-800 mt-8 pt-8 text-sm">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                        <p>&copy; {currentYear} TurkHealth. All rights reserved.</p>
+                        <p>&copy; {currentYear} Clinikverde. All rights reserved.</p>
                         <div className="flex gap-6">
                             <Link to="/privacy" className="hover:text-white transition">Privacy Policy</Link>
                             <Link to="/terms" className="hover:text-white transition">Terms of Service</Link>

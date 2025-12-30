@@ -25,9 +25,9 @@ export default function Header() {
                                 <Phone size={16} />
                                 <span className="hidden sm:inline">+90 555 123 4567</span>
                             </a>
-                            <a href="mailto:info@turkhealth.com" className="flex items-center gap-2 hover:opacity-80 transition">
+                            <a href="mailto:info@Clinikverde.com" className="flex items-center gap-2 hover:opacity-80 transition">
                                 <Mail size={16} />
-                                <span className="hidden md:inline">info@turkhealth.com</span>
+                                <span className="hidden md:inline">info@Clinikverde.com</span>
                             </a>
                         </div>
                         <div className="text-xs hidden md:block">
@@ -47,7 +47,7 @@ export default function Header() {
                         </div>
                         <div>
                             <div className="text-2xl font-bold text-blue-600">
-                                TurkHealth
+                                Clinikverde
                             </div>
                             <div className="text-xs text-gray-500 -mt-1">
                                 Medical Tourism
