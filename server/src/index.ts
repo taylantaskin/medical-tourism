@@ -19,8 +19,14 @@ const JWT_EXPIRES_IN = (process.env.JWT_EXPIRES_IN || '7d') as string;
 export const prisma = new PrismaClient();
 
 // Middleware
+//
 app.use(cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+    origin: [
+        "http://localhost:5173",                      // Senin bilgisayarın (Localhost)
+        "https://medical-tourism-kohl.vercel.app",    // Eski Vercel linki (Yedek)
+        "https://www.clinicverde.com",                // Yeni Domain (WWW)
+        "https://clinicverde.com"                     // Yeni Domain (WWW'siz)
+    ],
     credentials: true
 }));
 app.use(express.json());
