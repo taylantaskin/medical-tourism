@@ -574,8 +574,10 @@ Distributed under the MIT License. See `LICENSE` for more information.
 **Taylan Taşkın**
 
 - GitHub: [@taylantaskin](https://github.com/taylantaskin)
-- Email: your.email@example.com
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
+- Email: taylantaskin@yahoo.com
+- LinkedIn: [Taylan Taşkın](www.linkedin.com/in/taylantaşkın1
+
+)
 
 **Project Link:** [https://github.com/taylantaskin/medical-tourism](https://github.com/taylantaskin/medical-tourism)
 
